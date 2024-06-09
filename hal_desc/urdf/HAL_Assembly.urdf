@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot
+  name="HAL_Assembly">
+
+  <link name="base_footprint"/>
+
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.053386 -5.4913E-08 0.16596"
+        rpy="0 0 0" />
+      <mass
+        value="3.1298" />
+      <inertia
+        ixx="0.025577"
+        ixy="-7.0308E-10"
+        ixz="-0.003261"
+        iyy="0.060586"
+        iyz="-1.3464E-09"
+        izz="0.058999" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find hal_desc)/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find hal_desc)/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="wheel_left_back">
+    <inertial>
+      <origin
+        xyz="0 -0.01705 -5.5511E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.61027" />
+      <inertia
+        ixx="0.00093524"
+        ixy="6.468E-20"
+        ixz="-1.679E-20"
+        iyy="0.0017547"
+        iyz="2.8394E-18"
+        izz="0.00093524" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find hal_desc)/meshes/wheel_left_back.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find hal_desc)/meshes/wheel_left_back.STL" />
+      </geometry>
+    </collision>
+    <gazebo reference="wheel_left_back">
+      <mu1>0.1</mu1>
+      <mu2>0.1</mu2>
+    </gazebo>
+  </link>
+  <joint
+    name="wheel_left_back_joint"
+    type="continuous">
+    <origin
+      xyz="-0.25 0.2776 -0.03"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_left_back" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="10"
+      velocity="10" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+    <joint
+    name="base_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0.09"
+      rpy="0 0 0" />
+    <parent
+      link="base_footprint" />
+    <child
+      link="base_link" />
+    <limit
+      effort="10"
+      velocity="10" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="wheel_left_front">
+    <inertial>
+      <origin
+        xyz="0 -0.01705 -5.5511E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.61027" />
+      <inertia
+        ixx="0.00093524"
+        ixy="1.8005E-20"
+        ixz="1.0125E-20"
+        iyy="0.0017547"
+        iyz="2.8465E-18"
+        izz="0.00093524" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find hal_desc)/meshes/wheel_left_front.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find hal_desc)/meshes/wheel_left_front.STL" />
+      </geometry>
+    </collision>
+    <gazebo reference="wheel_left_front"></gazebo>
+  </link>
+  <joint
+    name="wheel_left_front_joint"
+    type="continuous">
+    <origin
+      xyz="0.25 0.2776 -0.03"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_left_front" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="10"
+      velocity="10" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="wheel_right_front">
+    <inertial>
+      <origin
+        xyz="0 0.01705 -5.5511E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.61027" />
+      <inertia
+        ixx="0.00093524"
+        ixy="6.468E-20"
+        ixz="1.679E-20"
+        iyy="0.0017547"
+        iyz="-2.8394E-18"
+        izz="0.00093524" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find hal_desc)/meshes/wheel_right_front.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find hal_desc)/meshes/wheel_right_front.STL" />
+      </geometry>
+    </collision>
+    <gazebo reference="wheel_right_front"></gazebo>
+  </link>
+  <joint
+    name="wheel_right_front_joint"
+    type="continuous">
+    <origin
+      xyz="0.25 -0.2776 -0.03"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_right_front" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="10"
+      velocity="10" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="wheel_right_back">
+    <inertial>
+      <origin
+        xyz="5.55111512312578E-17 0.01705 -6.24500451351651E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.610268068271202" />
+      <inertia
+        ixx="0.000935240277880665"
+        ixy="2.54010755449461E-21"
+        ixz="-1.01553813386556E-20"
+        iyy="0.00175465045472419"
+        iyz="-2.8474280622955E-18"
+        izz="0.000935240277880665" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find hal_desc)/meshes/wheel_right_back.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find hal_desc)/meshes/wheel_right_back.STL" />
+      </geometry>
+    </collision>
+    <gazebo reference="wheel_right_back">
+      <mu1>0.1</mu1>
+      <mu2>0.1</mu2>
+    </gazebo>
+  </link>
+  <joint
+    name="wheel_right_back_joint"
+    type="continuous">
+    <origin
+      xyz="-0.25 -0.2776 -0.03"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_right_back" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="10"
+      velocity="10" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="lidar_link">
+    <inertial>
+      <origin
+        xyz="-0.0013241 8.3429E-18 0.0099966"
+        rpy="0 0 0" />
+      <mass
+        value="0.023312" />
+      <inertia
+        ixx="3.2242E-06"
+        ixy="-3.2725E-21"
+        ixz="1.0348E-10"
+        iyy="2.7203E-06"
+        iyz="8.9779E-23"
+        izz="4.3914E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find hal_desc)/meshes/lidar_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find hal_desc)/meshes/lidar_link.STL" />
+      </geometry>
+    </collision>
+    <gazebo reference="lidar_link"></gazebo>
+  </link>
+  <joint
+    name="lidar_base_joint"
+    type="fixed">
+    <origin
+      xyz="0.34799 0 -0.023"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="lidar_link" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      effort="10"
+      velocity="10" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+
+  <gazebo>
+        <plugin name="HAL_diff_drive_controller" filename="libgazebo_ros_diff_drive.so">
+
+          <!-- Update rate in Hz -->
+          <update_rate>50</update_rate>
+
+          <!-- wheels -->
+          <left_joint>wheel_left_front_joint</left_joint>
+          <right_joint>wheel_right_front_joint</right_joint>
+
+          <!-- kinematics -->
+          <wheel_separation>0.60</wheel_separation>
+          <wheel_diameter>0.18</wheel_diameter>
+
+          <!-- input -->
+          <command_topic>cmd_vel</command_topic>
+
+          <!-- output -->
+          <publish_odom>true</publish_odom>
+          <publish_odom_tf>true</publish_odom_tf>
+          <publish_wheel_tf>true</publish_wheel_tf>
+
+          <odometry_topic>odom</odometry_topic>
+          <odometry_frame>odom</odometry_frame>
+          <robot_base_frame>base_footprint</robot_base_frame>
+
+    </plugin>
+  </gazebo>
+
+</robot>
